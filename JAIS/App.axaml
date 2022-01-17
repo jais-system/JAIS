@@ -1,0 +1,9 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:theme="clr-namespace:Theme;assembly=Theme"
+             x:Class="JAIS.App">
+    <Application.Styles>
+        <!-- <FluentTheme Mode="Dark"/> -->
+        <theme:CustomTheme Mode="Dark"></theme:CustomTheme>
+    </Application.Styles>
+</Application>

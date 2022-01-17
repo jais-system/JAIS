@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="50"
+             x:Class="JAIS.Apps.Dock.Dock">
+    <UserControl.Styles>
+        <Style Selector="Label">
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+
+        <Style Selector="Button">
+            <Setter Property="Background" Value="#000000"></Setter>
+            <Setter Property="CornerRadius" Value="12"></Setter>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid
+        RowDefinitions="*"
+        ColumnDefinitions="*, Auto, *">
+        <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0">
+            <Button Click="PowerButtonClicked">
+                <Image Source="avares://JAIS/Assets/power.png"></Image>
+            </Button>
+        </StackPanel>
+
+        <ItemsControl Grid.Column="1" Items="{Binding Apps}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border Tapped="AppClicked" Margin="10, 0">
+                        <Image Width="40" Height="40" Source="{Binding Attribute.AppIcon}"></Image>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2">
+            <Label>E</Label>
+            <Label>F</Label>
+        </StackPanel>
+    </Grid>
+</UserControl>

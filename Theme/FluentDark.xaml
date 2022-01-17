@@ -1,0 +1,9 @@
+<Styles xmlns="https://github.com/avaloniaui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:sys="clr-namespace:System;assembly=netstandard">
+  <StyleInclude Source="avares://Theme/Accents/AccentColors.xaml" />
+  <StyleInclude Source="avares://Theme/Accents/BaseDark.xaml" />
+  <StyleInclude Source="avares://Theme/Accents/Base.xaml" />
+  <StyleInclude Source="avares://Theme/Accents/FluentControlResourcesDark.xaml" />
+  <StyleInclude Source="avares://Theme/Controls/FluentControls.xaml" />
+</Styles>

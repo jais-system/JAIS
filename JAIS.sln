@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JAIS", "JAIS\JAIS.csproj", "{DD40DC0F-F401-49D3-BB78-64E59CE02A42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theme", "Theme\Theme.csproj", "{0BCF890C-D68C-4643-8EA0-1BFDD1427CD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD40DC0F-F401-49D3-BB78-64E59CE02A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD40DC0F-F401-49D3-BB78-64E59CE02A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD40DC0F-F401-49D3-BB78-64E59CE02A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD40DC0F-F401-49D3-BB78-64E59CE02A42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BCF890C-D68C-4643-8EA0-1BFDD1427CD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BCF890C-D68C-4643-8EA0-1BFDD1427CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BCF890C-D68C-4643-8EA0-1BFDD1427CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BCF890C-D68C-4643-8EA0-1BFDD1427CD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

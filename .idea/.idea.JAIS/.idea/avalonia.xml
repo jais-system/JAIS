@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="JAIS/App.axaml" value="JAIS/JAIS.csproj" />
+        <entry key="JAIS/Apps/Dock/Dock.axaml" value="JAIS/JAIS.csproj" />
+        <entry key="JAIS/Apps/Settings/Settings.axaml" value="JAIS/JAIS.csproj" />
+        <entry key="JAIS/Apps/Spotify/Spotify.axaml" value="JAIS/JAIS.csproj" />
+        <entry key="JAIS/Apps/SystemControls/SystemControls.axaml" value="JAIS/JAIS.csproj" />
+        <entry key="JAIS/Dialogs/PowerDialog/PowerDialog.axaml" value="JAIS/JAIS.csproj" />
+        <entry key="JAIS/MainSingleView.axaml" value="JAIS/JAIS.csproj" />
+        <entry key="JAIS/MainView.axaml" value="JAIS/JAIS.csproj" />
+        <entry key="JAIS/MainWindow.axaml" value="JAIS/JAIS.csproj" />
+        <entry key="JAIS/Styles/GlobalStyles.axaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Accents/AccentColors.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Accents/Base.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Accents/BaseDark.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Accents/BaseLight.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Accents/FluentControlResourcesDark.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Accents/FluentControlResourcesLight.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Controls/Button.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Controls/FluentControls.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Controls/FlyoutPresenter.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Controls/Label.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Controls/ManagedFileChooser.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Controls/Menu.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Controls/RadioButton.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Controls/RepeatButton.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Controls/ScrollBar.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/Controls/Slider.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/DensityStyles/Compact.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/FluentDark.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="Theme/FluentLight.xaml" value="JAIS/JAIS.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

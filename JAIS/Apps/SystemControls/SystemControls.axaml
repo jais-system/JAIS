@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="400"
+             x:Class="JAIS.Apps.SystemControls.SystemControls">
+    <Border Padding="15">
+        <StackPanel>
+            <Label Margin="0, 0, 0, 10" FontSize="20" FontWeight="Bold">System Controls</Label>
+
+            <Label Margin="0, 10, 0, -15" Opacity="0.6">Brightness</Label>
+            <Slider Value="100" IsEnabled="False"></Slider>
+
+            <Label Margin="0, 10, 0, -15" Opacity="0.6">Volume</Label>
+            <Slider Value="{Binding Config.Volume}"></Slider>
+            <Button
+                Margin="0, 10, 0, 0"
+                HorizontalAlignment="Center"
+                Click="ChangeThemeClicked">
+                Change Theme
+            </Button>
+        </StackPanel>
+    </Border>
+
+</UserControl>
