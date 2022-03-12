@@ -2,11 +2,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:qr="clr-namespace:Avalonia.QRCode;assembly=Avalonia.QRCode"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="JAIS.Apps.Settings.Settings">
     <Border>
-        <StackPanel>
-            <Label>Settings</Label>
+        <StackPanel Margin="10">
+            <Label Classes="Title">Settings</Label>
+
+            <Grid RowDefinitions="Auto, Auto, Auto"
+                  ColumnDefinitions="Auto, Auto"
+                  Classes="List">
+
+                <Label Grid.Row="0" Grid.Column="0" Classes="Info">IP Address:</Label>
+                <Label Grid.Row="0" Grid.Column="1" Content="{Binding Bindings.IpAddress}"></Label>
+
+                <Label Grid.Row="1" Grid.Column="0" Classes="Info">Port:</Label>
+                <Label Grid.Row="1" Grid.Column="1" Content="{Binding Bindings.Port}"></Label>
+            </Grid>
         </StackPanel>
     </Border>
 </UserControl>

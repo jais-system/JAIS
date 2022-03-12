@@ -9,6 +9,12 @@
         <Setter Property="Foreground" Value="{DynamicResource SystemBaseHighColor}"></Setter>
     </Style>
 
+    <Style Selector="Label.Title">
+        <Setter Property="FontSize" Value="30"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Margin" Value="0, 0, 0, 10"></Setter>
+    </Style>
+
     <Style Selector="Border.Dialog">
         <Setter Property="BoxShadow" Value="0 0 50 1 #3D000000"></Setter>
         <Setter Property="Opacity" Value="0" />
@@ -113,5 +119,10 @@
                 </KeyFrame>
             </Animation>
         </Style.Animations>
+    </Style>
+
+    <Style Selector="Grid.List Label.Info">
+        <Setter Property="Opacity" Value="0.6"></Setter>
+        <Setter Property="Margin" Value="0, 0, 10, 0"></Setter>
     </Style>
 </Styles>

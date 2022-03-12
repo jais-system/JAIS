@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
@@ -12,6 +13,11 @@ public partial class MainWindow : Window
 #if DEBUG
         this.AttachDevTools();
 #endif
+    }
+
+    private void OnClosing(object? sender, CancelEventArgs e)
+    {
+        Program.ServerThread.Interrupt();
     }
 
     private void InitializeComponent()

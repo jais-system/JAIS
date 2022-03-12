@@ -8,6 +8,8 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Castle.Core.Internal;
+using Common;
+using Common.Core;
 using JAIS.Core;
 using JAIS.Dialogs.PowerDialog;
 using JAIS.Entities;

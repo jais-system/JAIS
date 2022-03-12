@@ -14,9 +14,11 @@
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.11" />
         <PackageReference Include="Avalonia.LinuxFramebuffer" Version="0.10.11" />
-        <PackageReference Include="Castle.Windsor" Version="5.1.1" />
+        <PackageReference Include="QRCode.Avalonia" Version="1.0.0" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Common\Common.csproj" />
+      <ProjectReference Include="..\Server\Server.csproj" />
       <ProjectReference Include="..\Theme\Theme.csproj" />
     </ItemGroup>
     <ItemGroup>

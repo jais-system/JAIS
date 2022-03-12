@@ -2,6 +2,8 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Common;
+using Common.Core;
 using JAIS.Core;
 using JAIS.Services.SystemService;
 

@@ -3,6 +3,8 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
+using Common;
+using Common.Core;
 using JAIS.Core;
 using JAIS.Services.SystemService;
 using JAIS.Services.SystemService.Entities;

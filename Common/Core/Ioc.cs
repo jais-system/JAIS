@@ -1,6 +1,6 @@
 using Castle.Windsor;
 
-namespace JAIS.Core;
+namespace Common.Core;
 
 public class Ioc
 {

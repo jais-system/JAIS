@@ -1,3 +1,4 @@
+using System.Timers;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
@@ -85,10 +86,19 @@ public class MainView : UserControl
             secondaryAppContainer.Classes.Add("OpenAppAnimation");
 
             _currentAppContainerUsed = AppContainers.Secondary;
+
+            // var timer = new Timer(1000);
+            // timer.Elapsed += (sender, args) =>
+            // {
+            //     primaryAppContainerOne.Child = null;
+            // };
         }
         else
         {
+            Bindings.PreviousMainApp = Bindings.MainApp;
             Bindings.MainApp = app;
+
+            secondaryAppContainer.Child = Bindings.PreviousMainApp;
             primaryAppContainerOne.Child = Bindings.MainApp;
 
             RemoveClassIfSet(primaryAppContainerOne, "CloseAppAnimation");
@@ -98,6 +108,12 @@ public class MainView : UserControl
             secondaryAppContainer.Classes.Add("CloseAppAnimation");
 
             _currentAppContainerUsed = AppContainers.Primary;
+
+            // var timer = new Timer(1000);
+            // timer.Elapsed += (sender, args) =>
+            // {
+            //     secondaryAppContainer.Child = null;
+            // };
         }
     }
 }
