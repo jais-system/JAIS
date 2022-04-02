@@ -17,7 +17,7 @@ public partial class MainWindow : Window
 
     private void OnClosing(object? sender, CancelEventArgs e)
     {
-        Program.ServerThread.Interrupt();
+        // Program.ServerThread.Interrupt();
     }
 
     private void InitializeComponent()

@@ -13,12 +13,6 @@
 
             <Label Margin="0, 10, 0, -15" Opacity="0.6">Volume</Label>
             <Slider Value="{Binding Config.Volume}"></Slider>
-            <Button
-                Margin="0, 10, 0, 0"
-                HorizontalAlignment="Center"
-                Click="ChangeThemeClicked">
-                Change Theme
-            </Button>
         </StackPanel>
     </Border>
 

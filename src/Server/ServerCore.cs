@@ -10,7 +10,7 @@ namespace Server;
 
 public class ServerCore
 {
-    public void Initialize()
+    public static void Initialize()
     {
         AppCore.Initialize();
 

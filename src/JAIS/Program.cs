@@ -14,16 +14,18 @@ class Program
     [STAThread]
     public static int Main(string[] args)
     {
+        Console.WriteLine("\n\n=====================================");
+        Console.WriteLine("     ██  █████  ██ ███████ \n     ██ ██   ██ ██ ██      \n     ██ ███████ ██ ███████ \n██   ██ ██   ██ ██      ██ \n █████  ██   ██ ██ ███████ ");
+        Console.WriteLine("=====================================\n\n");
+
         AppCore.Initialize();
 
-        var serverCore = new ServerCore();
-
-        ServerThread = new Thread(serverCore.Initialize)
-        {
-            IsBackground = true
-        };
-
-        ServerThread.Start();
+            // ServerThread = new Thread(ServerCore.Initialize)
+            // {
+            //     IsBackground = true
+            // };
+            //
+            // ServerThread.Start();
 
         AppBuilder builder = BuildAvaloniaApp();
         if (args.Contains("--drm"))
@@ -35,7 +37,7 @@ class Program
                 Console.WriteLine("Using /dev/dri/card0...");
                 exitCode = builder.StartLinuxDrm(args, "/dev/dri/card0", 1.7d);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Error. Trying /dev/dri/card1...");
                 exitCode = builder.StartLinuxDrm(args, "/dev/dri/card1", 1.7d);

@@ -19,6 +19,13 @@
                 <Label Grid.Row="1" Grid.Column="0" Classes="Info">Port:</Label>
                 <Label Grid.Row="1" Grid.Column="1" Content="{Binding Bindings.Port}"></Label>
             </Grid>
+
+            <Button
+                Margin="0, 10, 0, 0"
+                HorizontalAlignment="Center"
+                Click="ChangeThemeClicked">
+                Change Theme
+            </Button>
         </StackPanel>
     </Border>
 </UserControl>
