@@ -2,10 +2,8 @@ using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using Common.Core;
 using Common.Services.ServerService;
 using JAIS.Entities;
-using JAIS.Services.SystemService;
 using JAIS.Services.SystemService.Entities;
 
 namespace JAIS.Apps.Settings;

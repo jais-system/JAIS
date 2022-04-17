@@ -1,8 +1,8 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Common;
 using JAIS.Services.SystemService;
-using Ioc = JAIS.Core.Ioc;
 
 namespace JAIS;
 
@@ -12,7 +12,7 @@ public class App : Application
 
     public override void Initialize()
     {
-        var systemService = Ioc.Resolve<ISystemService>();
+        var systemService = DependencyInjection.Resolve<ISystemService>();
 
         MainWindow = this;
         AvaloniaXamlLoader.Load(this);

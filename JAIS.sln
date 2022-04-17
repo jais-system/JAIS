@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JAIS", "src\JAIS\JAIS.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theme", "src\Theme\Theme.csproj", "{0BCF890C-D68C-4643-8EA0-1BFDD1427CD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "src\Server\Server.csproj", "{759D30FA-AD7A-4F65-BE27-9BDE49002A09}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestServer", "src\RestServer\RestServer.csproj", "{759D30FA-AD7A-4F65-BE27-9BDE49002A09}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "src\Common\Common.csproj", "{FA94B3E6-0EEE-4FF1-AE88-04114DD29B5F}"
 EndProject

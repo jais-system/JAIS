@@ -1,13 +1,9 @@
-using System;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Common;
-using JAIS.Core;
 using JAIS.Services.SystemService;
 using JAIS.Services.SystemService.Entities;
-using Theme;
 
 namespace JAIS.Apps.SystemControls;
 
@@ -17,7 +13,7 @@ public class SystemControls : UserControl
 
     public SystemControls()
     {
-        var systemService = Ioc.Resolve<ISystemService>();
+        var systemService = DependencyInjection.Resolve<ISystemService>();
         Config = systemService.CurrentSystemConfig;
 
         DataContext = this;

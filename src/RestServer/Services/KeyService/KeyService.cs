@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Server.Services.KeyService;
+namespace RestServer.Services.KeyService;
 
 public class KeyService : IKeyService
 {

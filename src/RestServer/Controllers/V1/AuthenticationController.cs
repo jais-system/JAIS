@@ -1,11 +1,10 @@
 using Common;
-using Common.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Server.Entities;
-using Server.Services.KeyService;
+using RestServer.Entities;
+using RestServer.Services.KeyService;
 
-namespace Server.Controllers.V1;
+namespace RestServer.Controllers.V1;
 
 [Route("api/v1/authentication")]
 [ApiController]
@@ -20,13 +19,13 @@ public class AuthenticationController : ControllerBase
             return Unauthorized();
         }
 
-        var keyService = Ioc.Resolve<IKeyService>();
+        var keyService = DependencyInjection.Resolve<IKeyService>();
 
         return keyService.GenerateJwtToken();
     }
 
     [HttpGet]
-    [Authorize]
+    // [Authorize]
     [Route("test")]
     public ActionResult<IEnumerable<string>> Get()
     {

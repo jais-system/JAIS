@@ -2,13 +2,12 @@ using System;
 using System.IO;
 using System.Reflection;
 using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 
 namespace JAIS.Entities;
 
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
+[AttributeUsage(AttributeTargets.Class)]
 public class AppAttribute : Attribute
 {
     public string AppName { get; }

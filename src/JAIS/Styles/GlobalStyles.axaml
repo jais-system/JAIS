@@ -77,6 +77,15 @@
         <Setter Property="Foreground" Value="#FFFFFF"></Setter>
     </Style>
 
+    <Style Selector="Border.Dialog Button:pressed">
+        <Setter Property="Background">
+            <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                <GradientStop Offset="0" Color="#0682F9" />
+                <GradientStop Offset="1" Color="#026EF9" />
+            </LinearGradientBrush>
+        </Setter>
+    </Style>
+
     <Style Selector="Border.Dialog Button.Cancel">
         <Setter Property="Background" Value="#4D6B6B6B"></Setter>
         <Setter Property="Foreground" Value="{DynamicResource SystemBaseHighColor}"></Setter>

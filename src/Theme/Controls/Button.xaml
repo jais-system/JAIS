@@ -42,16 +42,14 @@
   </Style>
 
   <!-- PointerOverState -->
-  <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPointerOver}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPointerOver}" />
-    <Setter Property="TextBlock.Foreground" Value="{DynamicResource ButtonForegroundPointerOver}" />
-  </Style>
-
+  <!-- <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter"> -->
+  <!--   <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPointerOver}" /> -->
+  <!--   <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPointerOver}" /> -->
+  <!--   <Setter Property="TextBlock.Foreground" Value="{DynamicResource ButtonForegroundPointerOver}" /> -->
+  <!-- </Style> -->
+  <!-- -->
   <Style Selector="Button:pressed  /template/ ContentPresenter#PART_ContentPresenter">
-    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPressed}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPressed}" />
-    <Setter Property="TextBlock.Foreground" Value="{DynamicResource ButtonForegroundPressed}" />
+    <Setter Property="Opacity" Value="0.7" />
   </Style>
 
   <Style Selector="Button:disabled /template/ ContentPresenter#PART_ContentPresenter">

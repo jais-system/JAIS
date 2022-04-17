@@ -2,14 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Reflection;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using Castle.Core.Internal;
 using Common;
-using JAIS.Core;
 using JAIS.Dialogs.PowerDialog;
 using JAIS.Entities;
 using JAIS.Services.SystemService;
@@ -26,7 +22,7 @@ public class Dock : UserControl
 
     public Dock()
     {
-        var systemService = Ioc.Resolve<ISystemService>();
+        var systemService = DependencyInjection.Resolve<ISystemService>();
         _systemConfig = systemService.CurrentSystemConfig;
         Apps = new ObservableCollection<AppInfo>(GetApps());
         DataContext = this;

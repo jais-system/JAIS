@@ -32,6 +32,17 @@
         <entry key="Theme/DensityStyles/Compact.xaml" value="JAIS/JAIS.csproj" />
         <entry key="Theme/FluentDark.xaml" value="JAIS/JAIS.csproj" />
         <entry key="Theme/FluentLight.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Apps/Settings/Settings.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Apps/Spotify/Spotify.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Dialogs/AppSideloadingRequest/AppSideloadingRequest.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Dialogs/AppSideloadingRequest/AppSideloadingRequestDialog.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Dialogs/PowerDialog/PowerDialog.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/MainView.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/MainWindow.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Styles/GlobalStyles.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Theme/Accents/FluentControlResourcesDark.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Theme/Accents/FluentControlResourcesLight.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Theme/Controls/Button.xaml" value="src/JAIS/JAIS.csproj" />
       </map>
     </option>
   </component>

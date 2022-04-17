@@ -1,8 +1,17 @@
-using System.Timers;
+using System.Threading;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using Avalonia.Threading;
+using Common;
+using Common.Services.AppManager;
+using Common.Services.AppManager.Entities;
+using JAIS.Dialogs.AppSideloadingRequest;
+using JAIS.Dialogs.PowerDialog;
 using JAIS.Entities;
+using JAIS.Extensions;
+using AppInfo = Common.Services.AppManager.Entities.AppInfo;
 
 namespace JAIS;
 
@@ -14,8 +23,10 @@ public enum AppContainers
 
 public class MainView : UserControl
 {
+    private readonly IAppManager _appManager;
+
     private static AppContainers _currentAppContainerUsed = AppContainers.Secondary;
-    public static MainView Instance { get; private set; }
+    internal static MainView Instance { get; private set; } = null!;
 
     private MainViewBindings Bindings { get; } = new ()
     {
@@ -24,6 +35,10 @@ public class MainView : UserControl
 
     public MainView()
     {
+        _appManager = DependencyInjection.Resolve<IAppManager>();
+
+        _appManager.RegisterSideloadingRequestHandler(AppInstallRequest);
+
         Instance = this;
         DataContext = this;
         InitializeComponent();
@@ -32,6 +47,24 @@ public class MainView : UserControl
     private void InitializeComponent()
     {
         AvaloniaXamlLoader.Load(this);
+    }
+
+    private bool AppInstallRequest(SideloadingRequest request)
+    {
+        AppSideloadingRequestDialog dialog = null!;
+
+        Dispatcher.UIThread.InvokeAsync(() =>
+        {
+            dialog = new AppSideloadingRequestDialog(request);
+            ShowDialog(dialog);
+        }).Wait();
+
+        while (dialog.Result == null)
+        {
+            Thread.Sleep(500);
+        }
+
+        return (bool) dialog.Result!;
     }
 
     public static void ShowDialog(UserControl dialog)

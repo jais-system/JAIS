@@ -1,6 +1,6 @@
 using System.Security.Cryptography;
 
-namespace Server.Services.KeyService;
+namespace RestServer.Services.KeyService;
 
 public interface IKeyService
 {

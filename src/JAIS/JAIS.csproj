@@ -17,10 +17,9 @@
         <PackageReference Include="Avalonia.LinuxFramebuffer" Version="0.10.11" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
         <PackageReference Include="QRCode.Avalonia" Version="1.0.0" />
-        <PackageReference Include="SpotifyAPI.Web" Version="6.2.2" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Server\Server.csproj" />
+      <ProjectReference Include="..\RestServer\RestServer.csproj" />
       <ProjectReference Include="..\Theme\Theme.csproj" />
     </ItemGroup>
     <ItemGroup>
@@ -36,5 +35,6 @@
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Apps\Settings\Assets" />
+      <Folder Include="Services\AppLoader\Entities" />
     </ItemGroup>
 </Project>

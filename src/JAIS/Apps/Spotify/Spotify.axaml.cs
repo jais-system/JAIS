@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using JAIS.Entities;
+// using SpotifyAPI.Web;
 
 namespace JAIS.Apps.Spotify;
 
@@ -20,10 +21,7 @@ public class Spotify : UserControl
 
     private async void Test()
     {
-        // var config = SpotifyClientConfig.CreateDefault();
-        // var request = new ClientCredentialsRequest("6691748ea0f84d8284ca03b06fda129f", "53c7746d4c944f6dbf84827d1060db68");
-        // var response = await new OAuthClient(config).RequestToken(request);
-        // var spotify = new SpotifyClient(config.WithToken(response.AccessToken));
+        // var spotify = new SpotifyClient("BQDDyorsv7zbOhy1hZaiOhBHs_d9hs9TKGIIqijUPJC9mHOwcJdC5z9BYy_dREdT6u0kpYu8Um-sN-7jzyJFWbOahdgwnxGbnsPadvomZh7TFj6FXbWqQLFpmhjxbwJRZRY4RINf39J0S5LOgPxCEqq8mp-x");
         // FullTrack track = await spotify.Tracks.Get("2LV5joNDrsyuXEh4FBARVK");
         //
         // string id = (await spotify.UserProfile.Current()).Id;

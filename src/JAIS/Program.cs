@@ -2,14 +2,15 @@
 using System.Linq;
 using System.Threading;
 using Avalonia;
-using Server;
-using AppCore = JAIS.Core.AppCore;
+using Common;
+using RestServer;
+using Startup = JAIS.Core.Startup;
 
 namespace JAIS;
 
-class Program
+internal class Program
 {
-    public static Thread ServerThread { get; private set; }
+    public static Thread ServerThread { get; private set; } = null!;
 
     [STAThread]
     public static int Main(string[] args)
@@ -18,16 +19,19 @@ class Program
         Console.WriteLine("     ██  █████  ██ ███████ \n     ██ ██   ██ ██ ██      \n     ██ ███████ ██ ███████ \n██   ██ ██   ██ ██      ██ \n █████  ██   ██ ██ ███████ ");
         Console.WriteLine("=====================================\n\n");
 
-        AppCore.Initialize();
+        Startup.Initialize();
 
-            // ServerThread = new Thread(ServerCore.Initialize)
-            // {
-            //     IsBackground = true
-            // };
-            //
-            // ServerThread.Start();
+        DependencyInjection.Build();
+
+        ServerThread = new Thread(ServerCore.Initialize)
+        {
+            IsBackground = true
+        };
+
+        ServerThread.Start();
 
         AppBuilder builder = BuildAvaloniaApp();
+
         if (args.Contains("--drm"))
         {
             int exitCode;
@@ -35,12 +39,12 @@ class Program
             try
             {
                 Console.WriteLine("Using /dev/dri/card0...");
-                exitCode = builder.StartLinuxDrm(args, "/dev/dri/card0", 1.7d);
+                exitCode = builder.StartLinuxDrm(args, "/dev/dri/card0", 1.6d);
             }
             catch (Exception)
             {
                 Console.WriteLine("Error. Trying /dev/dri/card1...");
-                exitCode = builder.StartLinuxDrm(args, "/dev/dri/card1", 1.7d);
+                exitCode = builder.StartLinuxDrm(args, "/dev/dri/card1", 1.6d);
             }
 
             return exitCode;
@@ -48,18 +52,6 @@ class Program
 
         return builder.StartWithClassicDesktopLifetime(args);
     }
-
-    private static void SilenceConsole()
-    {
-        new Thread(() =>
-            {
-                Console.CursorVisible = false;
-                while (true)
-                    Console.ReadKey(true);
-            })
-            { IsBackground = true }.Start();
-    }
-
 
     public static AppBuilder BuildAvaloniaApp()
         => AppBuilder.Configure<App>()

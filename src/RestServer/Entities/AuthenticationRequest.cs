@@ -1,4 +1,4 @@
-namespace Server.Entities;
+namespace RestServer.Entities;
 
 public record AuthenticationRequest
 {

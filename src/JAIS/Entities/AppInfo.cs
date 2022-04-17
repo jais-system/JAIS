@@ -1,8 +1,7 @@
 using System;
 using Avalonia.Controls;
-using JAIS.Entities;
 
-namespace JAIS.Apps.Dock;
+namespace JAIS.Entities;
 
 public class AppInfo
 {

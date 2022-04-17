@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="JAIS.Dialogs.AppSideloadingRequest.AppSideloadingRequestDialog">
+    <UserControl.Styles>
+        <Style Selector="TextBlock.Message">
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="Gray" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="Margin" Value="0, 0, 0, 10" />
+        </Style>
+    </UserControl.Styles>
+
+    <StackPanel>
+        <Label Classes="Title">Install App?</Label>
+        <TextBlock Classes="Message" Text="{Binding Description}" />
+
+        <Button Click="ApproveClicked">Approve</Button>
+        <Button Classes="Cancel" Click="CancelClicked">Cancel</Button>
+    </StackPanel>
+</UserControl>
