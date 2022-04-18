@@ -1,0 +1,43 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version number"
+        default: "0.0.0"
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/dotnet/sdk:6.0
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Publish
+      run: dotnet publish -c Release -o build -r linux-arm -p:Version='${{ github.event.inputs.version }}' -p:PublishReadyToRun=true -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true -p:IncludeNativeLibrariesForSelfExtract=true src/JAIS/JAIS.csproj;
+
+    - name: Create tar.gz
+      run: |
+        cd build
+        tar -czvf JAIS-${{ github.event.inputs.version }}.tar.gz JAIS
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: Build
+        path: build/JAIS-${{ github.event.inputs.version }}.tar.gz
+
+    - name: Create Release strings
+      id: release_strings
+      run: |
+        echo "RELEASE_TAG=${{ github.event.inputs.version }}" >> $GITHUB_ENV
+        echo "RELEASE_NAME=Version ${{ github.event.inputs.version }}" >> $GITHUB_ENV
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ env.RELEASE_TAG }}
+        name: ${{ env.RELEASE_NAME }}
+        files: build/JAIS-${{ github.event.inputs.version }}.tar.gz

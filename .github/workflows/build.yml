@@ -1,0 +1,25 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/dotnet/sdk:6.0
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      run: dotnet build -c Release
+
+    - name: Publish
+      run: dotnet publish -c Release -o build -r linux-arm -p:PublishReadyToRun=true -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true -p:IncludeNativeLibrariesForSelfExtract=true src/JAIS/JAIS.csproj;
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: NuGet-Package
+        path: build/JAIS
