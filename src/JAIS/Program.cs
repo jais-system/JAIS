@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
+using System.Security;
+using System.Security.Permissions;
 using System.Threading;
 using Avalonia;
 using Common;
+using JAIS.Core;
 using RestServer;
 using Startup = JAIS.Core.Startup;
 
@@ -54,7 +58,7 @@ internal class Program
     }
 
     public static AppBuilder BuildAvaloniaApp()
-        => AppBuilder.Configure<App>()
+        => AppBuilder.Configure<MainApplication>()
             .UsePlatformDetect()
             .LogToTrace();
 }

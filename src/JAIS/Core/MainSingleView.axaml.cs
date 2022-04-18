@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace JAIS;
+namespace JAIS.Core;
 
 public class MainSingleView : UserControl
 {

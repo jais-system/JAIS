@@ -94,12 +94,17 @@ public class MainView : UserControl
         }
     }
 
+    public static bool IsCurrentApp(UserControl newApp)
+    {
+        return Equals(Instance.Bindings.MainApp, newApp);
+    }
+
     public void SetApp(UserControl app)
     {
         var primaryAppContainerOne = this.Find<Border>("PrimaryAppContainerOne");
         var secondaryAppContainer = this.Find<Border>("SecondaryAppContainer");
 
-        if (Equals(Bindings.MainApp, app))
+        if (IsCurrentApp(app))
         {
             return;
         }

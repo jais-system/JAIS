@@ -4,6 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:jais="clr-namespace:JAIS"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="JAIS.MainSingleView">
+             x:Class="JAIS.Core.MainSingleView">
     <jais:MainView></jais:MainView>
 </UserControl>

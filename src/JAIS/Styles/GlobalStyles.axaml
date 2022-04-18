@@ -68,22 +68,14 @@
         <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
         <Setter Property="FontWeight" Value="Bold"></Setter>
         <Setter Property="CornerRadius" Value="9"></Setter>
-        <Setter Property="Background">
-            <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
-                <GradientStop Offset="0" Color="#0682F9" />
-                <GradientStop Offset="1" Color="#026EF9" />
-            </LinearGradientBrush>
-        </Setter>
+        <Setter Property="Background" Value="#2A4CE2" />
+        <!-- <Setter Property="Background"> -->
+        <!--     <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%"> -->
+        <!--         <GradientStop Offset="0" Color="#0682F9" /> -->
+        <!--         <GradientStop Offset="1" Color="#026EF9" /> -->
+        <!--     </LinearGradientBrush> -->
+        <!-- </Setter> -->
         <Setter Property="Foreground" Value="#FFFFFF"></Setter>
-    </Style>
-
-    <Style Selector="Border.Dialog Button:pressed">
-        <Setter Property="Background">
-            <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
-                <GradientStop Offset="0" Color="#0682F9" />
-                <GradientStop Offset="1" Color="#026EF9" />
-            </LinearGradientBrush>
-        </Setter>
     </Style>
 
     <Style Selector="Border.Dialog Button.Cancel">

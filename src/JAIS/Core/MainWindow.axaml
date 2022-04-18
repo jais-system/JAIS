@@ -8,6 +8,6 @@
         d:DesignHeight="768"
         Width="1024"
         Height="600"
-        x:Class="JAIS.MainWindow">
+        x:Class="JAIS.Core.MainWindow">
         <jais:MainView></jais:MainView>
 </Window>

@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 using Common;
 using JAIS.Services.SystemService;
 
-namespace JAIS;
+namespace JAIS.Core;
 
-public class App : Application
+public class MainApplication : Application
 {
     public static Application MainWindow;
 

@@ -19,6 +19,7 @@
         <PackageReference Include="QRCode.Avalonia" Version="1.0.0" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Apps\Settings\src\Settings\Settings.csproj" />
       <ProjectReference Include="..\RestServer\RestServer.csproj" />
       <ProjectReference Include="..\Theme\Theme.csproj" />
     </ItemGroup>
@@ -28,13 +29,22 @@
       <None Remove="Apps\Spotify\Assets\Icon.png" />
       <AvaloniaResource Include="Apps\Spotify\Assets\Icon.png" />
       <None Remove="Apps\Settings\Assets\Icon.png" />
-      <AvaloniaResource Include="Apps\Settings\Assets\Icon.png" />
       <None Remove="Apps\Spotify\Assets\Test.png" />
       <None Remove="Apps\Spotify\Assets\Cover.jpg" />
       <AvaloniaResource Include="Apps\Spotify\Assets\Cover.jpg" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Apps\Settings\Assets" />
-      <Folder Include="Services\AppLoader\Entities" />
+      <Compile Update="Core\MainApplication.axaml.cs">
+        <DependentUpon>App.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Core\MainWindow.axaml.cs">
+        <DependentUpon>MainWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Core\MainSingleView.axaml.cs">
+        <DependentUpon>MainSingleView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
 </Project>

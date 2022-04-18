@@ -4,5 +4,6 @@ public enum InstallAppResult
 {
     UnknownError,
     FileAlreadyExists,
-    Success
+    Success,
+    AppInfoInvalid
 }

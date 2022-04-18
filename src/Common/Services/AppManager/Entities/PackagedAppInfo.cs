@@ -15,4 +15,7 @@ public record PackagedAppInfo(string? AppName, string? Author, string? Version, 
 
     [JsonPropertyName("dllPath")]
     public string? DllPath { get; set; } = DllPath;
+
+    [JsonPropertyName("bundleId")]
+    public string? BundleId { get; set; }
 }

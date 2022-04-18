@@ -1,7 +1,7 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:theme="clr-namespace:Theme;assembly=Theme"
-             x:Class="JAIS.App">
+             x:Class="JAIS.Core.MainApplication">
     <Application.Styles>
         <!-- <FluentTheme Mode="Dark"/> -->
         <theme:CustomTheme Mode="Dark"></theme:CustomTheme>

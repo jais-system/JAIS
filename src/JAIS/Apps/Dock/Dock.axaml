@@ -33,7 +33,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Border Tapped="AppClicked" Margin="10, 0">
-                        <Image Width="40" Height="40" Source="{Binding Attribute.AppIcon}"></Image>
+                        <Image Width="40" Height="40" Source="{Binding Icon}"></Image>
                     </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

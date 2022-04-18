@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
+using JAIS.Core;
 using JAIS.Services.SystemService.Entities;
 using Theme;
 
@@ -95,12 +96,12 @@ public class SystemService : ISystemService
 
         CustomTheme style = dark ? _darkTheme! : _lightTheme!;
 
-        if (App.MainWindow.Styles.Count <= 0)
+        if (MainApplication.MainWindow.Styles.Count <= 0)
         {
-            App.MainWindow.Styles.Add(style);
+            MainApplication.MainWindow.Styles.Add(style);
         }
 
-        App.MainWindow.Styles[0] = style;
+        MainApplication.MainWindow.Styles[0] = style;
     }
 
     public void Reboot()
