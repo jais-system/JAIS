@@ -81,52 +81,6 @@ public class AppManager : IAppManager
         return _onSideloadingRequestCallback?.Invoke(request) ?? false;
     }
 
-    public IEnumerable<App> LoadApps()
-    {
-        var apps = new List<App>();
-
-        foreach (AppInfo appInfo in AppList)
-        {
-            string dllFile = appInfo.DllPath;
-
-            try
-            {
-                Assembly assembly = Assembly.LoadFrom(dllFile);
-
-                foreach (Type type in assembly.GetTypes())
-                {
-                    object[] attributes = type.GetCustomAttributes(typeof(AppAttribute), true);
-
-                    if (attributes.Any())
-                    {
-                        foreach (object rawAttribute in attributes)
-                        {
-                            var attribute = (AppAttribute) rawAttribute;
-
-                            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-                            Stream? asset = assets?.Open(new Uri(attribute.AppIcon));
-
-                            apps.Add(new App
-                            {
-                                BundleId = appInfo.BundleId,
-                                Type = type,
-                                Name = attribute.AppName,
-                                Icon = new Bitmap(asset)
-                            });
-
-                        }
-                    }
-                }
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception);
-            }
-        }
-
-        return apps;
-    }
-
     public IEnumerable<App> GetAppsFromAssembly(Assembly assembly, string bundleId)
     {
         var apps = new List<App>();
@@ -153,6 +107,28 @@ public class AppManager : IAppManager
                     });
 
                 }
+            }
+        }
+
+        return apps;
+    }
+
+    public IEnumerable<App> LoadApps()
+    {
+        var apps = new List<App>();
+
+        foreach (AppInfo appInfo in AppList)
+        {
+            string dllFile = appInfo.DllPath;
+
+            try
+            {
+                Assembly assembly = Assembly.LoadFrom(dllFile);
+                apps.AddRange(GetAppsFromAssembly(assembly, appInfo.BundleId));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
             }
         }
 
