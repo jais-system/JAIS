@@ -7,10 +7,14 @@ on:
 
 jobs:
   build:
+    name: "Build"
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/dotnet/sdk:6.0
     steps:
     - uses: actions/checkout@v2
+
+    - name: Add GitHub Registry
+      run: dotnet nuget add source --username carsten-computer-club --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/carsten-computer-club/index.json"
 
     - name: Build
       run: dotnet build -c Release
