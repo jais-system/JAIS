@@ -25,5 +25,5 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: NuGet-Package
+        name: Jais-CI-Build
         path: build/JAIS
