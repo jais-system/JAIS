@@ -26,12 +26,6 @@
     <ItemGroup>
       <None Remove="Assets\power.png" />
       <AvaloniaResource Include="Assets\power.png" />
-      <None Remove="Apps\Spotify\Assets\Icon.png" />
-      <AvaloniaResource Include="Apps\Spotify\Assets\Icon.png" />
-      <None Remove="Apps\Settings\Assets\Icon.png" />
-      <None Remove="Apps\Spotify\Assets\Test.png" />
-      <None Remove="Apps\Spotify\Assets\Cover.jpg" />
-      <AvaloniaResource Include="Apps\Spotify\Assets\Cover.jpg" />
     </ItemGroup>
     <ItemGroup>
       <Compile Update="Core\MainApplication.axaml.cs">
