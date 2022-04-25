@@ -38,6 +38,7 @@
         <entry key="src/JAIS/Apps/Settings/Settings.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Apps/Spotify/Spotify.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Core/MainApplication.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Core/MainWindow.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Dialogs/AppSideloadingRequest/AppSideloadingRequest.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Dialogs/AppSideloadingRequest/AppSideloadingRequestDialog.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Dialogs/PowerDialog/PowerDialog.axaml" value="src/JAIS/JAIS.csproj" />
