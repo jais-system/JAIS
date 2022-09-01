@@ -1,17 +1,13 @@
 using System.Threading;
-using System.Threading.Tasks;
+using AppCore;
+using AppCore.Services.AppManager;
+using AppCore.Services.AppManager.Entities;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
-using Common;
-using Common.Services.AppManager;
-using Common.Services.AppManager.Entities;
 using JAIS.Dialogs.AppSideloadingRequest;
-using JAIS.Dialogs.PowerDialog;
 using JAIS.Entities;
-using JAIS.Extensions;
-using AppInfo = Common.Services.AppManager.Entities.AppInfo;
 
 namespace JAIS;
 
@@ -35,7 +31,7 @@ public class MainView : UserControl
 
     public MainView()
     {
-        _appManager = DependencyInjection.Resolve<IAppManager>();
+        _appManager = DependencyInjector.Resolve<IAppManager>();
 
         _appManager.RegisterSideloadingRequestHandler(AppInstallRequest);
 

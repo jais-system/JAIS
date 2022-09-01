@@ -1,7 +1,7 @@
+using AppCore.Helpers;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using Common.Helpers;
 
 namespace JAIS.Dialogs.PowerDialog;
 

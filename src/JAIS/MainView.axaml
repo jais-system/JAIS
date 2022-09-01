@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:dock="clr-namespace:JAIS.Apps.Dock"
              xmlns:systemControls="clr-namespace:JAIS.Apps.SystemControls"
+             xmlns:musicControls="clr-namespace:JAIS.Apps.MusicControls"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
@@ -19,11 +20,11 @@
             ColumnDefinitions="300, *, *">
 
             <Border Grid.Row="0" Grid.Column="0" Classes="AppBorderContainer">
-                <systemControls:SystemControls></systemControls:SystemControls>
+                <systemControls:SystemControls />
             </Border>
 
             <Border Grid.Row="1" Grid.Column="0" Classes="AppBorderContainer">
-
+                <musicControls:MusicControls />
             </Border>
 
             <Border Grid.RowSpan="2"

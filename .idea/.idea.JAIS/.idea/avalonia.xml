@@ -32,12 +32,29 @@
         <entry key="Theme/DensityStyles/Compact.xaml" value="JAIS/JAIS.csproj" />
         <entry key="Theme/FluentDark.xaml" value="JAIS/JAIS.csproj" />
         <entry key="Theme/FluentLight.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Accents/Base.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Accents/BaseDark.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/Button.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/ButtonSpinner.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/FluentControls.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/DensityStyles/Compact.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/FluentDark.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/FluentLight.xaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/Apps/Settings/src/Settings/MainWindow.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Apps/Spotify/Assets/MainWindow.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Apps/Spotify/MainWindow.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/App.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Apps/Dock/Dock.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Apps/Keyboard/Layout/VirtualKeyboardLayoutUS.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Apps/Keyboard/VirtualKey.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Apps/Keyboard/VirtualKeyboard.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Apps/MusicControls/MusicControls.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Apps/MusicWidget/MusicControls.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Apps/Settings/Settings.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Apps/Spotify/Spotify.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Apps/SystemControls/SystemControls.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Core/MainApplication.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Core/MainSingleView.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Core/MainWindow.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Dialogs/AppSideloadingRequest/AppSideloadingRequest.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Dialogs/AppSideloadingRequest/AppSideloadingRequestDialog.axaml" value="src/JAIS/JAIS.csproj" />
@@ -51,6 +68,7 @@
         <entry key="src/Theme/Controls/Button.xaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/Theme/Controls/FluentControls.xaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/Theme/Controls/WindowNotificationManager.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Theme/FluentDark.xaml" value="src/JAIS/JAIS.csproj" />
       </map>
     </option>
   </component>

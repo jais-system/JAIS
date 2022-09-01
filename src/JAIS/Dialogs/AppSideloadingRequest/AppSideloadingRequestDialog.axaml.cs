@@ -1,8 +1,8 @@
 using System;
+using AppCore.Services.AppManager.Entities;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using Common.Services.AppManager.Entities;
 
 namespace JAIS.Dialogs.AppSideloadingRequest;
 
@@ -15,7 +15,7 @@ public partial class AppSideloadingRequestDialog : UserControl
 
     public AppSideloadingRequestDialog()
     {
-
+        
     }
 
     public AppSideloadingRequestDialog(SideloadingRequest request)

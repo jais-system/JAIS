@@ -6,6 +6,6 @@ internal static class UserControlExtensions
 {
     public static void ShowDialog(this UserControl userControl, UserControl dialog)
     {
-        MainView.Instance.ShowDialog(dialog);
+        MainView.ShowDialog(dialog);
     }
 }

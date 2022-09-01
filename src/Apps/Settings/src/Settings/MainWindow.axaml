@@ -7,6 +7,8 @@
     <Border>
         <StackPanel Margin="10">
             <Label Classes="Title">Settings</Label>
+            
+            <Button Click="OnChangeThemeClicked">Change Theme</Button>
         </StackPanel>
     </Border>
 </UserControl>

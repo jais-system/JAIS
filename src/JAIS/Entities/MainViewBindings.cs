@@ -1,3 +1,4 @@
+using AppCore.Entities;
 using Avalonia.Controls;
 
 namespace JAIS.Entities;

@@ -1,23 +1,44 @@
+using System.ComponentModel;
+using AppCore;
+using AppCore.Services.System;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Common;
-using JAIS.Services.SystemService;
 
 namespace JAIS.Core;
 
 public class MainApplication : Application
 {
-    public static Application MainWindow;
+    private IJaisSystem? _jaisSystem;
+    public static Application MainWindow = null!;
 
     public override void Initialize()
     {
-        var systemService = DependencyInjection.Resolve<ISystemService>();
+        _jaisSystem = DependencyInjector.Resolve<IJaisSystem>();
 
         MainWindow = this;
         AvaloniaXamlLoader.Load(this);
 
-        systemService.ChangeTheme(systemService.CurrentSystemConfig.DarkMode);
+        _jaisSystem.Configuration.PropertyChanged += ThemeChanged;
+        _jaisSystem.ChangeTheme(_jaisSystem.Configuration.DarkMode);
+    }
+
+    private void ThemeChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName != nameof(_jaisSystem.Configuration.CurrentTheme))
+        {
+            return;
+        }
+        
+        if (_jaisSystem?.Configuration.CurrentTheme != null)
+        {
+            if (MainWindow.Styles.Count <= 0)
+            {
+                MainWindow.Styles.Add(_jaisSystem.Configuration.CurrentTheme);
+            }
+        
+            MainWindow.Styles[0] = _jaisSystem.Configuration.CurrentTheme;
+        }
     }
 
     public override void OnFrameworkInitializationCompleted()

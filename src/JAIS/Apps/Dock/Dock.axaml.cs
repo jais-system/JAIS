@@ -2,17 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using AppCore;
+using AppCore.Services.AppManager;
+using AppCore.Services.AppManager.Entities;
+using AppCore.Services.System;
+using AppCore.Services.System.Entities;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
-using Common;
-using Common.Services.AppManager;
-using Common.Services.AppManager.Entities;
 using JAIS.Dialogs.PowerDialog;
-using JAIS.Services.SystemService;
-using JAIS.Services.SystemService.Entities;
-using NuGet.Packaging;
 
 namespace JAIS.Apps.Dock;
 
@@ -22,13 +21,13 @@ public class Dock : UserControl
     private readonly IAppManager _appManager;
 
     private ObservableCollection<App> Apps { get; }
-    private HashSet<App> _recentApps = new HashSet<App>();
+    private HashSet<App> _recentApps = new();
 
     public Dock()
     {
-        _appManager = DependencyInjection.Resolve<IAppManager>();
-        var systemService = DependencyInjection.Resolve<ISystemService>();
-        _systemConfig = systemService.CurrentSystemConfig;
+        _appManager = DependencyInjector.Resolve<IAppManager>();
+        var systemService = DependencyInjector.Resolve<IJaisSystem>();
+        _systemConfig = systemService.Configuration;
 
         Apps = new ObservableCollection<App>(_appManager.LoadApps());
         LoadStandardApps();
@@ -40,9 +39,18 @@ public class Dock : UserControl
         _appManager.OnNewAppInstalled += OnNewAppInstalled;
     }
 
+    private void AddApps(IEnumerable<App> apps)
+    {
+        foreach (App app in apps)
+        {
+            Apps.Add(app);
+        }
+    }
+
     private void LoadStandardApps()
     {
-        Apps.AddRange(_appManager.GetAppsFromAssembly(typeof(Settings.MainWindow).Assembly, "com.jais.Settings"));
+        AddApps(_appManager.GetAppsFromAssembly(typeof(Settings.MainWindow).Assembly, "com.jais.Settings"));
+        AddApps(_appManager.GetAppsFromAssembly(typeof(Spotify.MainWindow).Assembly, "com.jais.Spotify"));
     }
 
     private void OnNewAppInstalled(object? sender, AppInfo newAppInfo)
@@ -70,12 +78,12 @@ public class Dock : UserControl
                     }
 
                     var remainingApps = apps.Where(app => app.Name != existingApp.Name);
-                    Apps.AddRange(remainingApps);
+                    AddApps(remainingApps);
                 }
             }
             else
             {
-                Apps.AddRange(apps);
+                AddApps(apps);
             }
         });
     }
@@ -97,7 +105,7 @@ public class Dock : UserControl
 
     private void SetLastUsedApp()
     {
-        string lastUsedAppBundleId = _systemConfig.LastUsedApp;
+        string? lastUsedAppBundleId = _systemConfig.LastUsedApp;
 
         if (string.IsNullOrEmpty(lastUsedAppBundleId))
         {
@@ -119,7 +127,7 @@ public class Dock : UserControl
             appInfo.Id = Guid.NewGuid().ToString();
         }
 
-        if (appInfo.Instance == null)
+        if (appInfo.Instance == null && appInfo.Type != null)
         {
             appInfo.Instance = Activator.CreateInstance(appInfo.Type) as UserControl;
 
@@ -129,14 +137,15 @@ public class Dock : UserControl
             }
         }
 
-        Dispatcher.UIThread.InvokeAsync(() => MainView.Instance.SetApp(appInfo.Instance));
-
-        _recentApps.Add(appInfo);
-
-        _systemConfig.LastUsedApp = appInfo.BundleId;
+        if (appInfo.Instance != null)
+        {
+            Dispatcher.UIThread.InvokeAsync(() => MainView.Instance.SetApp(appInfo.Instance));
+            _recentApps.Add(appInfo);
+            _systemConfig.LastUsedApp = appInfo.BundleId;
+        }
     }
 
-    private void AppClicked(object sender, RoutedEventArgs eventArgs)
+    private void AppClicked(object sender, RoutedEventArgs _)
     {
         var appInfo = (App) ((Border) sender).DataContext!;
         SetApp(appInfo);

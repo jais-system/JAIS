@@ -11,7 +11,6 @@
         <PackageReference Include="Avalonia.Desktop" Version="0.10.11" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.11" />
-        <PackageReference Include="JaisAppCore" Version="0.1.1-alpha" />
     </ItemGroup>
 
     <ItemGroup>
@@ -33,7 +32,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\..\Common\Common.csproj" />
+      <ProjectReference Include="..\..\..\..\AppCore\AppCore.csproj" />
     </ItemGroup>
 
 </Project>
