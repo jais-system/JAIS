@@ -25,7 +25,7 @@ public class JaisSystem : Notifiable, IJaisSystem
             Directory.CreateDirectory(ConfigDirectory);
         }
         
-        string configSerialized = JsonSerializer.Serialize(systemConfig, new JsonSerializerOptions { WriteIndented = true });
+        string configSerialized = JsonSerializer.Serialize(systemConfig.ToDto(), new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(ConfigFilePath, configSerialized);
     }
 
@@ -42,16 +42,19 @@ public class JaisSystem : Notifiable, IJaisSystem
             if (fileExists)
             {
                 string rawFile = File.ReadAllText(filePath);
-                var configFile = JsonSerializer.Deserialize<SystemConfig>(rawFile);
+                var configFile = JsonSerializer.Deserialize<SystemConfigDto>(rawFile);
 
-                currentConfig = configFile;
+                if (configFile != null)
+                {
+                    currentConfig = new SystemConfig().FromDto(configFile);   
+                }
             }
             else
             {
                 WriteConfigToFile(currentConfig);
             }
 
-            return currentConfig ?? new SystemConfig();
+            return currentConfig;
         }
         catch(Exception exception)
         {

@@ -4,6 +4,13 @@ using AppCore.Theme;
 
 namespace AppCore.Services.System.Entities;
 
+public record SystemConfigDto(
+    bool DarkMode,
+    double Volume,
+    string? LastUsedApp,
+    string? ObdSerialPort
+);
+
 public class SystemConfig : Notifiable
 {
     private bool _darkMode;
@@ -19,4 +26,24 @@ public class SystemConfig : Notifiable
     
     [JsonIgnore]
     public JaisAppTheme? CurrentTheme { get => _currentTheme; set => Set(ref _currentTheme, value); }
+
+    public SystemConfigDto ToDto()
+    {
+        return new SystemConfigDto(
+            DarkMode,
+            Volume,
+            LastUsedApp,
+            ObdSerialPort
+        );
+    }
+
+    public SystemConfig FromDto(SystemConfigDto dto)
+    {
+        DarkMode = dto.DarkMode;
+        Volume = dto.Volume;
+        LastUsedApp = dto.LastUsedApp;
+        ObdSerialPort = dto.ObdSerialPort;
+
+        return this;
+    }
 }

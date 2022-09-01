@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using AppCore;
 using AppCore.Services.System;
@@ -25,19 +26,26 @@ public class MainApplication : Application
 
     private void ThemeChanged(object? sender, PropertyChangedEventArgs e)
     {
-        if (e.PropertyName != nameof(_jaisSystem.Configuration.CurrentTheme))
+        try
         {
-            return;
-        }
-        
-        if (_jaisSystem?.Configuration.CurrentTheme != null)
-        {
-            if (MainWindow.Styles.Count <= 0)
+            if (e.PropertyName != nameof(_jaisSystem.Configuration.CurrentTheme))
             {
-                MainWindow.Styles.Add(_jaisSystem.Configuration.CurrentTheme);
+                return;
             }
         
-            MainWindow.Styles[0] = _jaisSystem.Configuration.CurrentTheme;
+            if (_jaisSystem?.Configuration.CurrentTheme != null)
+            {
+                if (MainWindow.Styles.Count <= 0)
+                {
+                    MainWindow.Styles.Add(_jaisSystem.Configuration.CurrentTheme);
+                }
+        
+                MainWindow.Styles[0] = _jaisSystem.Configuration.CurrentTheme;
+            }
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine("Something went wrong while trying to change theme {}", exception);
         }
     }
 
