@@ -1,6 +1,6 @@
 using AppCore;
-using AppCore.Services.System;
-using AppCore.Services.System.Entities;
+using AppCore.Services.CoreSystem;
+using AppCore.Services.CoreSystem.Entities;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;

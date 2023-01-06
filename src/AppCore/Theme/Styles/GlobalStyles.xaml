@@ -1,0 +1,83 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style Selector="Label">
+        <Setter Property="Foreground" Value="{DynamicResource SystemBaseHighColor}"></Setter>
+    </Style>
+
+    <Style Selector="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource SystemBaseHighColor}"></Setter>
+    </Style>
+
+    <Style Selector="Label.Title">
+        <Setter Property="FontSize" Value="30"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Margin" Value="0, 20, 0, 10"></Setter>
+    </Style>
+
+    <Style Selector="Border.Dialog">
+        <Setter Property="BoxShadow" Value="0 0 50 1 #3D000000"></Setter>
+        <Setter Property="Opacity" Value="0" />
+        <!-- <Setter Property="ScaleTransform.ScaleY" Value="0.8" /> -->
+        <!-- <Setter Property="ScaleTransform.ScaleX" Value="0.8" /> -->
+    </Style>
+
+    <Style Selector="Border.Dialog Label.Title">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontWeight" Value="Black" />
+        <Setter Property="Margin" Value="0, 0, 0, 20" />
+    </Style>
+
+    <Style Selector="Border.DialogOuter[IsVisible=True]">
+        <Style.Animations>
+            <Animation Easing="CubicEaseInOut" FillMode="Forward" Duration="0:0:0.3">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Opacity" Value="0" />
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Opacity" Value="1" />
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+    <Style Selector="Border.DialogOuter[IsVisible=True] Border.Dialog">
+        <!-- <Style.Animations> -->
+        <!--     <Animation Easing="CubicEaseInOut" FillMode="Forward" Duration="0:0:0.4"> -->
+        <!--         <KeyFrame Cue="0%"> -->
+        <!--             <Setter Property="Opacity" Value="0" /> -->
+        <!--             <Setter Property="ScaleTransform.ScaleY" Value="0" /> -->
+        <!--         </KeyFrame> -->
+        <!--         <KeyFrame Cue="80%"> -->
+        <!--             <Setter Property="Opacity" Value="1" /> -->
+        <!--             <Setter Property="ScaleTransform.ScaleY" Value="1.1" /> -->
+        <!--         </KeyFrame> -->
+        <!--         <KeyFrame Cue="100%"> -->
+        <!--             <Setter Property="Opacity" Value="1" /> -->
+        <!--             <Setter Property="ScaleTransform.ScaleY" Value="1" /> -->
+        <!--         </KeyFrame> -->
+        <!--     </Animation> -->
+        <!-- </Style.Animations> -->
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style Selector="Button">
+        <Setter Property="Padding" Value="10"></Setter>
+    </Style>
+
+    <Style Selector="Border.Dialog Button">
+        <Setter Property="Margin" Value="0, 5"></Setter>
+        <Setter Property="Padding" Value="0, 8"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="CornerRadius" Value="9"></Setter>
+        <Setter Property="Background" Value="#2A4CE2" />
+        <Setter Property="Foreground" Value="#FFFFFF"></Setter>
+    </Style>
+
+    <Style Selector="Border.Dialog Button.Cancel">
+        <Setter Property="Background" Value="#4D6B6B6B"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource SystemBaseHighColor}"></Setter>
+    </Style>
+</Styles>

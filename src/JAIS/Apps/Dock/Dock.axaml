@@ -20,7 +20,7 @@
         ColumnDefinitions="*, Auto, *">
         <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0">
             <Button Click="PowerButtonClicked">
-                <Image Source="avares://JAIS/Assets/power.png"></Image>
+                <Image Width="40" Source="avares://JAIS/Assets/power.png"></Image>
             </Button>
         </StackPanel>
 
@@ -32,9 +32,17 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border Tapped="AppClicked" Margin="10, 0">
-                        <Image Width="40" Height="40" Source="{Binding Icon}"></Image>
-                    </Border>
+                    <StackPanel>
+                        <Button Margin="10, 0" Background="Transparent" Click="AppClicked">
+                            <Image Width="35" Height="35" Source="{Binding Icon}"></Image>
+                        </Button>
+                        <Border 
+                            Height="10"
+                            Width="50"
+                            CornerRadius="10"
+                            Background="Gray"
+                            IsVisible="{Binding IsActive}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

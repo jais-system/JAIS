@@ -1,6 +1,6 @@
 using AppCore.Exceptions;
-using AppCore.Services.System;
-using AppCore.Services.System.Entities;
+using AppCore.Services.CoreSystem;
+using AppCore.Services.CoreSystem.Entities;
 using OBD.NET.Communication;
 using OBD.NET.Devices;
 using OBD.NET.OBDData;

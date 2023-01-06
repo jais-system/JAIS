@@ -6,8 +6,8 @@
         mc:Ignorable="d"
         d:DesignWidth="1024"
         d:DesignHeight="768"
-        Width="1024"
-        Height="600"
+        Width="1200"
+        Height="700"
         x:Class="JAIS.Core.MainWindow">
         <jais:MainView></jais:MainView>
 </Window>

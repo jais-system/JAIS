@@ -3,8 +3,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:dock="clr-namespace:JAIS.Apps.Dock"
-             xmlns:systemControls="clr-namespace:JAIS.Apps.SystemControls"
              xmlns:musicControls="clr-namespace:JAIS.Apps.MusicControls"
+             xmlns:jais="clr-namespace:JAIS"
+             xmlns:carView="clr-namespace:JAIS.Apps.CarView"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
@@ -12,21 +13,26 @@
     <UserControl.Styles>
         <StyleInclude Source="/Styles/GlobalStyles.axaml"></StyleInclude>
     </UserControl.Styles>
+    
+    <Design.DataContext>
+        <jais:MainView />
+    </Design.DataContext>
 
     <Grid>
         <Grid
             Background="Black"
-            RowDefinitions="*, *, 50"
+            RowDefinitions="*, *, 60"
             ColumnDefinitions="300, *, *">
-
+    
             <Border Grid.Row="0" Grid.Column="0" Classes="AppBorderContainer">
-                <systemControls:SystemControls />
+                <!-- <systemControls:SystemControls /> -->
+                <carView:CarView Margin="0, 50, 0, 0" />
             </Border>
-
+    
             <Border Grid.Row="1" Grid.Column="0" Classes="AppBorderContainer">
                 <musicControls:MusicControls />
             </Border>
-
+    
             <Border Grid.RowSpan="2"
                     Grid.ColumnSpan="2"
                     Grid.Row="0"
@@ -37,12 +43,12 @@
                     <Border Name="SecondaryAppContainer" Classes="App"></Border>
                 </Grid>
             </Border>
-
-                <Border Grid.ColumnSpan="3" Grid.Row="2" Grid.Column="0">
+    
+            <Border Grid.ColumnSpan="3" Grid.Row="2" Grid.Column="0">
                 <dock:Dock></dock:Dock>
             </Border>
         </Grid>
-
+    
         <Border IsVisible="{Binding Bindings.ShowDialog}" Classes="DialogOuter" Background="#4D000000" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Border Classes="Dialog" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#5B464545" BorderThickness="1" Background="{DynamicResource DialogBackground}" Padding="10" CornerRadius="10">
                 <StackPanel Name="DialogContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinWidth="250" MaxWidth="250">

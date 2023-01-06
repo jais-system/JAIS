@@ -1,22 +1,34 @@
 using System.ComponentModel;
 using System.Text.Json;
 using AppCore.Entities;
-using AppCore.Services.System.Entities;
+using AppCore.Services.CoreSystem.Entities;
 using AppCore.Theme;
-using FluentThemeMode = AppCore.Theme.FluentThemeMode;
 
-namespace AppCore.Services.System;
+namespace AppCore.Services.CoreSystem;
+
+public enum NetworkState
+{
+    Offline,
+    Online
+}
 
 public class JaisSystem : Notifiable, IJaisSystem
 {
     private JaisAppTheme? _lightTheme;
     private JaisAppTheme? _darkTheme;
     private SystemConfig? _systemConfig;
-    
+
     public static string ConfigDirectory => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments), "Config");
     public static string ConfigFilePath => Path.Combine(ConfigDirectory, "System.json");
 
     public SystemConfig Configuration => _systemConfig ??= GetConfig();
+    
+    public event EventHandler<FluentThemeMode> ModeChanged = delegate { };
+
+    public JaisSystem()
+    {
+        Configuration.PropertyChanged += CurrentConfigOnPropertyChanged;
+    }
 
     private static void WriteConfigToFile(SystemConfig systemConfig)
     {
@@ -73,11 +85,6 @@ public class JaisSystem : Notifiable, IJaisSystem
         WriteConfigToFile(Configuration);
     }
 
-    public JaisSystem()
-    {
-        Configuration.PropertyChanged += CurrentConfigOnPropertyChanged;
-    }
-
     public void ChangeTheme(bool dark)
     {
         // ReSharper disable once ConvertIfStatementToSwitchStatement
@@ -98,6 +105,7 @@ public class JaisSystem : Notifiable, IJaisSystem
         }
 
         Configuration.CurrentTheme = dark ? _darkTheme! : _lightTheme!;
+        ModeChanged.Invoke(this, Configuration.DarkMode ? FluentThemeMode.Dark : FluentThemeMode.Light);
 
         // if (MainApplication.MainWindow.Styles.Count <= 0)
         // {

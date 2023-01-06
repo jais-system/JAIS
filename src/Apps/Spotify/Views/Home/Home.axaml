@@ -1,0 +1,63 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:home="clr-namespace:Spotify.Views.Home"
+             xmlns:entities="clr-namespace:Spotify.Entities"
+             xmlns:controls="clr-namespace:AppCore.Controls;assembly=AppCore"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Spotify.Views.Home.Home">
+    
+    <Design.DataContext>
+        <home:HomeViewModel />
+    </Design.DataContext>
+
+    <ScrollViewer>
+        <StackPanel Margin="10" IsVisible="{Binding IsOnline}">
+            <Label Classes="Title">Spotify</Label>
+            
+            <!-- <StackPanel Orientation="Horizontal" Spacing="10"> -->
+            <!--     <Button Background="#3880ff" Foreground="#FFFFFF">Playlists</Button> -->
+            <!--     <Button>Albums</Button> -->
+            <!--     <Button>Artists</Button> -->
+            <!-- </StackPanel> -->
+            
+            <StackPanel IsVisible="{Binding Loading}">
+                <Label Margin="0, 50, 0, 0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center">LOADING...</Label>
+            </StackPanel>
+            
+            <StackPanel IsVisible="{Binding !IsOnline}">
+                <Label Margin="0, 50, 0, 0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center">OFFLINE</Label>
+            </StackPanel>
+            
+            <WrapPanel>
+                <ItemsRepeater Items="{Binding Playlists}" ClipToBounds="True">
+                    <ItemsRepeater.Layout>
+                        <UniformGridLayout MinItemWidth="150"
+                                           MinColumnSpacing="2"
+                                           MinRowSpacing="2"
+                                           ItemsStretch="Fill"
+                                           ItemsJustification="SpaceEvenly"/>
+                    </ItemsRepeater.Layout>
+                    <ItemsRepeater.ItemTemplate>
+                        <DataTemplate DataType="entities:Playlist">
+                            <controls:TapScrollableButton
+                                Background="Transparent"
+                                Margin="5"
+                                Padding="0"
+                                Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.OpenPlaylist}"
+                                CommandParameter="{Binding }">
+                                <StackPanel MaxWidth="150">
+                                    <Border ClipToBounds="True" CornerRadius="10" Width="150" Height="150">
+                                        <Image Source="{Binding Image}" Width="150" Height="150"></Image>
+                                    </Border>
+                                    <TextBlock FontSize="15" TextAlignment="Center" Text="{Binding Name}"/>
+                                </StackPanel>
+                            </controls:TapScrollableButton>
+                        </DataTemplate>
+                    </ItemsRepeater.ItemTemplate>
+                </ItemsRepeater>
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

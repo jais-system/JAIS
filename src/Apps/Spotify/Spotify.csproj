@@ -1,24 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <LangVersion>11</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
       <AvaloniaResource Include="Assets\Icon.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </AvaloniaResource>
+      <None Remove="Assets\MusicCover.png" />
+      <AvaloniaResource Include="Assets\MusicCover.png" />
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="MainWindow.axaml.cs">
+      <Compile Update="SpotifyMainWindow.axaml.cs">
         <DependentUpon>MainWindow.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
       <Compile Update="MainWindow.axaml.cs">
         <DependentUpon>MainWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Home\Home.axaml.cs">
+        <DependentUpon>Home.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
     </ItemGroup>
@@ -28,11 +35,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Services" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="SpotifyAPI.Web" Version="6.3.0" />
+        <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="12.2.2" />
     </ItemGroup>
-
 </Project>

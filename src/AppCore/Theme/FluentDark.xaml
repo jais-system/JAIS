@@ -6,4 +6,5 @@
   <StyleInclude Source="avares://AppCore/Theme/Accents/Base.xaml" />
   <StyleInclude Source="avares://AppCore/Theme/Accents/FluentControlResourcesDark.xaml" />
   <StyleInclude Source="avares://AppCore/Theme/Controls/FluentControls.xaml" />
+  <StyleInclude Source="avares://AppCore/Theme/Styles/GlobalStyles.xaml" />
 </Styles>

@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCore", "src\AppCore\AppC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotify", "src\Apps\Spotify\Spotify.csproj", "{0601608E-FB15-46A1-8FD9-9EBAF1B09C78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maps", "src\Apps\Maps\Maps.csproj", "{44D75AB9-8044-47A2-8684-4185FE0DAD62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +34,14 @@ Global
 		{0601608E-FB15-46A1-8FD9-9EBAF1B09C78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0601608E-FB15-46A1-8FD9-9EBAF1B09C78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0601608E-FB15-46A1-8FD9-9EBAF1B09C78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44D75AB9-8044-47A2-8684-4185FE0DAD62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D75AB9-8044-47A2-8684-4185FE0DAD62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D75AB9-8044-47A2-8684-4185FE0DAD62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D75AB9-8044-47A2-8684-4185FE0DAD62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CD018782-59C4-4650-B0FF-080470F528A3} = {AEF9F2EF-116D-4F78-BB3E-B7D485C7A554}
 		{0601608E-FB15-46A1-8FD9-9EBAF1B09C78} = {AEF9F2EF-116D-4F78-BB3E-B7D485C7A554}
+		{44D75AB9-8044-47A2-8684-4185FE0DAD62} = {AEF9F2EF-116D-4F78-BB3E-B7D485C7A554}
 	EndGlobalSection
 EndGlobal

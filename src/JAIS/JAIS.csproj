@@ -1,29 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
-        <LangVersion>10</LangVersion>
+        <LangVersion>11</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <None Remove=".gitignore" />
         <None Remove="Mapsui" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.11" />
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.11" />
+        <PackageReference Include="Avalonia" Version="0.10.18" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.18" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.11" />
-        <PackageReference Include="Avalonia.LinuxFramebuffer" Version="0.10.11" />
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.18" />
+        <PackageReference Include="Avalonia.LinuxFramebuffer" Version="0.10.18" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\AppCore\AppCore.csproj" />
+      <ProjectReference Include="..\Apps\Maps\Maps.csproj" />
       <ProjectReference Include="..\Apps\Settings\src\Settings\Settings.csproj" />
       <ProjectReference Include="..\Apps\Spotify\Spotify.csproj" />
     </ItemGroup>
     <ItemGroup>
       <None Remove="Assets\power.png" />
       <AvaloniaResource Include="Assets\power.png" />
+      <None Remove="Assets\car.png" />
+      <AvaloniaResource Include="Assets\car.png" />
     </ItemGroup>
     <ItemGroup>
       <Compile Update="Core\MainApplication.axaml.cs">

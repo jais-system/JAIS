@@ -32,18 +32,60 @@
         <entry key="Theme/DensityStyles/Compact.xaml" value="JAIS/JAIS.csproj" />
         <entry key="Theme/FluentDark.xaml" value="JAIS/JAIS.csproj" />
         <entry key="Theme/FluentLight.xaml" value="JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Controls/BackButton.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Controls/DynamicIcon.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Controls/Loading.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Controls/VirtualKeyboard.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/AppCore/Theme/Accents/Base.xaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/AppCore/Theme/Accents/BaseDark.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Accents/BaseLight.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Accents/FluentControlResourcesDark.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Accents/IconsDark.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Accents/IconsDark.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Accents/IconsDark.xaml.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Accents/IconsLight.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/AutoCompleteBox.xaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/AppCore/Theme/Controls/Button.xaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/AppCore/Theme/Controls/ButtonSpinner.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/ComboBox.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/Expander.xaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/AppCore/Theme/Controls/FluentControls.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/ManagedFileChooser.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/Menu.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/MenuFlyoutPresenter.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/MenuItem.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/MenuScrollViewer.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/NativeMenuBar.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/ProgressBar.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/ScrollBar.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/ScrollViewer.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/SimpleControls.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/SplitButton.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/TextBox.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/TreeViewItem.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Controls/WindowNotificationManager.xaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/AppCore/Theme/DensityStyles/Compact.xaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/AppCore/Theme/FluentDark.xaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/AppCore/Theme/FluentLight.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/FluentTheme.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/GlobalStyles/GlobalStyles.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/SimpleTheme.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/AppCore/Theme/Styles/GlobalStyles.xaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Apps/Maps/App.axaml" value="src/Apps/Maps/Maps.csproj" />
+        <entry key="src/Apps/Maps/MainWindow.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Apps/Maps/MapsMainWindow.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/Apps/Settings/src/Settings/MainWindow.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/Apps/Spotify/Assets/MainWindow.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/Apps/Spotify/MainWindow.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Apps/Spotify/SpotifyMainWindow.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Apps/Spotify/Views/Home.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Apps/Spotify/Views/Home/Home.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Apps/Spotify/Views/Playlist/Playlist.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Apps/Spotify/Views/Playlist/PlaylistPage.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/Apps/Spotify/Views/PlaylistPage/PlaylistPage.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/App.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Apps/CarView/CarView.axaml" value="src/JAIS/JAIS.csproj" />
+        <entry key="src/JAIS/Apps/Clock/Clock.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Apps/Dock/Dock.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Apps/Keyboard/Layout/VirtualKeyboardLayoutUS.axaml" value="src/JAIS/JAIS.csproj" />
         <entry key="src/JAIS/Apps/Keyboard/VirtualKey.axaml" value="src/JAIS/JAIS.csproj" />

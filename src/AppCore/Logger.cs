@@ -43,6 +43,6 @@ public static class Logger
 
     public static void Exception(Exception exception)
     {
-        Logger.Error(exception.ToString());
+        Error(exception.ToString());
     }
 }

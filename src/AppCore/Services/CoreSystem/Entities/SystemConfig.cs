@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 using AppCore.Entities;
 using AppCore.Theme;
 
-namespace AppCore.Services.System.Entities;
+namespace AppCore.Services.CoreSystem.Entities;
 
 public record SystemConfigDto(
     bool DarkMode,

@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 using AppCore;
-using AppCore.Services.System;
+using AppCore.Services.CoreSystem;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
@@ -15,11 +15,10 @@ public class MainApplication : Application
 
     public override void Initialize()
     {
-        _jaisSystem = DependencyInjector.Resolve<IJaisSystem>();
-
         MainWindow = this;
         AvaloniaXamlLoader.Load(this);
 
+        _jaisSystem = DependencyInjector.Resolve<IJaisSystem>();
         _jaisSystem.Configuration.PropertyChanged += ThemeChanged;
         _jaisSystem.ChangeTheme(_jaisSystem.Configuration.DarkMode);
     }

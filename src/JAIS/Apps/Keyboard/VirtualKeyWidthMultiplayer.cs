@@ -8,10 +8,15 @@ public class VirtualKeyWidthMultiplayer : IValueConverter
 {
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        double v = double.Parse(value.ToString());
-        double p = double.Parse(parameter.ToString());
-        return v * (p / 10.0);
+        if (value != null && parameter != null)
+        {
+            double v = double.Parse(value.ToString()!);
+            double p = double.Parse(parameter.ToString()!);
+            return v * (p / 10.0);
+        }
+
+        return 0;
     }
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => throw new NotImplementedException();
+    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) => throw new NotImplementedException();
 }

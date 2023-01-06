@@ -1,13 +1,12 @@
-using System;
 using System.Globalization;
-using System.IO;
 using System.Reflection;
+using AppCore.Helpers;
 using Avalonia;
 using Avalonia.Data.Converters;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 
-namespace JAIS.Converters;
+namespace AppCore.Converters;
 
 /// <summary>
 /// <para>
@@ -20,7 +19,7 @@ namespace JAIS.Converters;
 /// </summary>
 public class BitmapAssetValueConverter : IValueConverter
 {
-    public static BitmapAssetValueConverter Instance = new BitmapAssetValueConverter();
+    public static readonly BitmapAssetValueConverter Instance = new BitmapAssetValueConverter();
 
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
@@ -31,22 +30,7 @@ public class BitmapAssetValueConverter : IValueConverter
 
         if (value is string rawUri && targetType.IsAssignableFrom(typeof(Bitmap)))
         {
-            Uri uri;
-
-            // Allow for assembly overrides
-            if (rawUri.StartsWith("avares://"))
-            {
-                uri = new Uri(rawUri);
-            }
-            else
-            {
-                string assemblyName = Assembly.GetEntryAssembly().GetName().Name;
-                uri = new Uri($"avares://{assemblyName}/{rawUri}");
-            }
-
-            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-            Stream? asset = assets?.Open(uri);
-
+            Stream? asset = AvaloniaResourceHelper.OpenResource(rawUri);
             return new Bitmap(asset);
         }
 

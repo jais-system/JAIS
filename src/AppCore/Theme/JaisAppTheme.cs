@@ -19,7 +19,6 @@ public enum FluentThemeMode
 /// </summary>
 public class JaisAppTheme : AvaloniaObject, IStyle, IResourceProvider
 {
-    private readonly Uri _baseUri;
     private Styles _fluentDark = new();
     private Styles _fluentLight = new();
     private Styles _sharedStyles = new();
@@ -32,7 +31,6 @@ public class JaisAppTheme : AvaloniaObject, IStyle, IResourceProvider
     /// <param name="baseUri">The base URL for the XAML context.</param>
     public JaisAppTheme(Uri baseUri)
     {
-        _baseUri = baseUri;
         InitStyles(baseUri);
     }
 
@@ -42,13 +40,14 @@ public class JaisAppTheme : AvaloniaObject, IStyle, IResourceProvider
     /// <param name="serviceProvider">The XAML service provider.</param>
     public JaisAppTheme(IServiceProvider serviceProvider)
     {
-        _baseUri = ((IUriContext)serviceProvider.GetService(typeof(IUriContext))).BaseUri;
-        InitStyles(_baseUri);
+        Uri baseUri = ((IUriContext) serviceProvider.GetService(typeof(IUriContext))!).BaseUri;
+        InitStyles(baseUri);
     }
 
 
     public static readonly StyledProperty<FluentThemeMode> ModeProperty =
         AvaloniaProperty.Register<JaisAppTheme, FluentThemeMode>(nameof(Mode));
+    
     /// <summary>
     /// Gets or sets the mode of the fluent theme (light, dark).
     /// </summary>
@@ -57,6 +56,7 @@ public class JaisAppTheme : AvaloniaObject, IStyle, IResourceProvider
         get => GetValue(ModeProperty);
         set => SetValue(ModeProperty, value);
     }
+    
     protected override void OnPropertyChanged<T>(AvaloniaPropertyChangedEventArgs<T> change)
     {
         base.OnPropertyChanged(change);
@@ -156,6 +156,10 @@ public class JaisAppTheme : AvaloniaObject, IStyle, IResourceProvider
             new StyleInclude(baseUri)
             {
                 Source = new Uri("avares://AppCore/Theme/Controls/FluentControls.xaml")
+            },
+            new StyleInclude(baseUri)
+            {
+                Source = new Uri("avares://AppCore/Theme/Styles/GlobalStyles.xaml")
             }
         };
 

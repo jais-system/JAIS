@@ -1,0 +1,99 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:playlistPage="clr-namespace:Spotify.Views.PlaylistPage"
+             xmlns:web="clr-namespace:SpotifyAPI.Web;assembly=SpotifyAPI.Web"
+             xmlns:converter="clr-namespace:Spotify.Converter"
+             xmlns:controls="clr-namespace:AppCore.Controls;assembly=AppCore"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Spotify.Views.PlaylistPage.PlaylistPage">
+    <Design.DataContext>
+        <playlistPage:PlaylistPageViewModel />
+    </Design.DataContext>
+
+    <UserControl.Resources>
+        <converter:ArtistsConverter x:Key="ArtistsConverter" />
+    </UserControl.Resources>
+    <UserControl.Styles>
+        <Style Selector="Button.ListButton">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="Button.ListButton:pressed">
+            <Setter Property="RenderTransform" Value="scale(1)" />
+            <Setter Property="Background" Value="{DynamicResource ButtonBackground}" />
+        </Style>
+    </UserControl.Styles>
+    
+    <ScrollViewer>
+        <StackPanel Margin="20">
+            <controls:BackButton Click="Back" />
+
+            <Grid ColumnDefinitions="*, Auto" RowDefinitions="*">
+                <StackPanel Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" FontSize="30" FontWeight="Bold" Text="{Binding Playlist.Name}"></TextBlock>
+                    <Button
+                        Command="{Binding PlayPlaylist}"
+                        Margin="0, 50, 0, 0"
+                        HorizontalContentAlignment="Center" Width="200">
+                        <StackPanel Orientation="Horizontal">
+                            <Svg
+                                Opacity="0.8"
+                                Margin="0, 0, 10, 0"
+                                Path="{DynamicResource PlayIcon}" />
+                            <Label>Play</Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                
+                <Border Grid.Column="1" ClipToBounds="True" CornerRadius="10">
+                    <Image Width="150" Height="150" Source="{Binding Playlist.Image}"></Image>
+                </Border>
+            </Grid>
+            
+            <Grid Margin="10, 20, 10, 10" ColumnDefinitions="*, *">
+                <Label 
+                    Grid.Column="0"
+                    FontWeight="Bold"
+                    Content="TITLE"
+                    Opacity="0.5"
+                    FontSize="11"/>
+                <Label 
+                    Grid.Column="1"
+                    FontWeight="Bold"
+                    Content="ARTIST"
+                    Opacity="0.5"
+                    FontSize="11" />
+            </Grid>
+            
+            <ItemsRepeater Items="{Binding PlaylistItems}">
+                <ItemsRepeater.ItemTemplate>
+                    <DataTemplate>
+                        <controls:TapScrollableButton 
+                            Classes="ListButton"
+                            Margin="1"
+                            HorizontalAlignment="Stretch">
+                            <Grid ColumnDefinitions="*, *">
+                                <Label 
+                                    Grid.Column="0"
+                                    FontWeight="Bold"
+                                    Content="{Binding Track.Name}" />
+                                <Label 
+                                    Grid.Column="1"
+                                    FontWeight="Bold"
+                                    Content="{Binding Track.Artists, Converter={StaticResource ArtistsConverter}}"
+                                    Opacity="0.6" />
+                            </Grid>
+                        </controls:TapScrollableButton>
+                    </DataTemplate>
+                </ItemsRepeater.ItemTemplate>
+            </ItemsRepeater>
+            
+            <controls:Loading 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                IsVisible="{Binding !PlaylistItems.Count}"
+                Margin="0, 100, 0, 0"/>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

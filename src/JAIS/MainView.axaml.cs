@@ -5,23 +5,17 @@ using AppCore.Services.AppManager.Entities;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using Avalonia.Styling;
 using Avalonia.Threading;
+using JAIS.Apps.Keyboard;
+using JAIS.Apps.Keyboard.Layout;
 using JAIS.Dialogs.AppSideloadingRequest;
 using JAIS.Entities;
 
 namespace JAIS;
 
-public enum AppContainers
-{
-    Primary,
-    Secondary
-}
-
 public class MainView : UserControl
 {
-    private readonly IAppManager _appManager;
-
-    private static AppContainers _currentAppContainerUsed = AppContainers.Secondary;
     internal static MainView Instance { get; private set; } = null!;
 
     private MainViewBindings Bindings { get; } = new ()
@@ -31,12 +25,14 @@ public class MainView : UserControl
 
     public MainView()
     {
-        _appManager = DependencyInjector.Resolve<IAppManager>();
-
-        _appManager.RegisterSideloadingRequestHandler(AppInstallRequest);
+        var appManager = DependencyInjector.Resolve<IAppManager>();
+        appManager.RegisterSideloadingRequestHandler(AppInstallRequest);
 
         Instance = this;
         DataContext = this;
+
+        VirtualKeyboard.AddLayout<VirtualKeyboardLayoutUS>();
+        VirtualKeyboard.SetDefaultLayout(() => typeof(VirtualKeyboardLayoutUS));
         InitializeComponent();
     }
 
@@ -98,56 +94,14 @@ public class MainView : UserControl
     public void SetApp(UserControl app)
     {
         var primaryAppContainerOne = this.Find<Border>("PrimaryAppContainerOne");
-        var secondaryAppContainer = this.Find<Border>("SecondaryAppContainer");
 
         if (IsCurrentApp(app))
         {
             return;
         }
+        
+        Bindings.MainApp = app;
 
-        if (_currentAppContainerUsed == AppContainers.Primary)
-        {
-            Bindings.PreviousMainApp = Bindings.MainApp;
-            Bindings.MainApp = app;
-
-            primaryAppContainerOne.Child = Bindings.PreviousMainApp;
-            secondaryAppContainer.Child = Bindings.MainApp;
-
-            RemoveClassIfSet(primaryAppContainerOne, "OpenAppAnimation");
-            RemoveClassIfSet(secondaryAppContainer, "CloseAppAnimation");
-
-            primaryAppContainerOne.Classes.Add("CloseAppAnimation");
-            secondaryAppContainer.Classes.Add("OpenAppAnimation");
-
-            _currentAppContainerUsed = AppContainers.Secondary;
-
-            // var timer = new Timer(1000);
-            // timer.Elapsed += (sender, args) =>
-            // {
-            //     primaryAppContainerOne.Child = null;
-            // };
-        }
-        else
-        {
-            Bindings.PreviousMainApp = Bindings.MainApp;
-            Bindings.MainApp = app;
-
-            secondaryAppContainer.Child = Bindings.PreviousMainApp;
-            primaryAppContainerOne.Child = Bindings.MainApp;
-
-            RemoveClassIfSet(primaryAppContainerOne, "CloseAppAnimation");
-            RemoveClassIfSet(secondaryAppContainer, "OpenAppAnimation");
-
-            primaryAppContainerOne.Classes.Add("OpenAppAnimation");
-            secondaryAppContainer.Classes.Add("CloseAppAnimation");
-
-            _currentAppContainerUsed = AppContainers.Primary;
-
-            // var timer = new Timer(1000);
-            // timer.Elapsed += (sender, args) =>
-            // {
-            //     secondaryAppContainer.Child = null;
-            // };
-        }
+        primaryAppContainerOne.Child = Bindings.MainApp;
     }
 }

@@ -1,15 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reactive.Subjects;
 using System.Threading.Tasks;
-using AppCore.Services.AppManager.Entities;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Input.Raw;
 using Avalonia.Input.TextInput;
 using Avalonia.Markup.Xaml;
-using Avalonia.Threading;
 using Avalonia.VisualTree;
 using JAIS.Apps.Keyboard.Layout;
 
@@ -33,15 +30,15 @@ public partial class VirtualKeyboard : UserControl
 
     public static void SetDefaultLayout(Func<Type> getDefaultLayout) => DefaultLayout = getDefaultLayout;
 
-    public static async Task<string?> ShowDialog(TextInputOptionsQueryEventArgs options, Window? owner = null)
-    {
-        var keyboard = new VirtualKeyboard();
-
-        if (options.Source is TextBox textBox)
-        {
-            keyboard.TextBox.Text = textBox.Text;
-            keyboard.TextBox.PasswordChar = textBox.PasswordChar;
-        }
+    // public static async Task<string?> ShowDialog(TextInputOptionsQueryEventArgs options, Window? owner = null)
+    // {
+    //     var keyboard = new VirtualKeyboard();
+    //
+    //     if (options.Source is TextBox textBox)
+    //     {
+    //         keyboard.TextBox.Text = textBox.Text;
+    //         keyboard.TextBox.PasswordChar = textBox.PasswordChar;
+    //     }
 
         // var window = new CoporateWindow();
         // window.CoporateContent = keyboard;
@@ -53,8 +50,8 @@ public partial class VirtualKeyboard : UserControl
         //         tb.Text = s;
         //     return s;
         // }
-        return null;
-    }
+    //     return null;
+    // }
 
     public TextBox TextBox { get; }
     // public TransitioningContentControl TransitioningContentControl { get; }
@@ -157,7 +154,7 @@ public partial class VirtualKeyboard : UserControl
             }
             else if (key == Key.Help)
             {
-                // _keyboardStateStream.OnNext(VirtualKeyboardState.Default);
+                _keyboardStateStream.OnNext(VirtualKeyboardState.Default);
                 // if (TransitioningContentControl.Content is KeyboardLayout layout)
                 // {
                 //     int index = Layouts.IndexOf(layout.GetType());

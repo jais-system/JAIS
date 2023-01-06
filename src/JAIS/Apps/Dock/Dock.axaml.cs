@@ -5,8 +5,8 @@ using System.Linq;
 using AppCore;
 using AppCore.Services.AppManager;
 using AppCore.Services.AppManager.Entities;
-using AppCore.Services.System;
-using AppCore.Services.System.Entities;
+using AppCore.Services.CoreSystem;
+using AppCore.Services.CoreSystem.Entities;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
@@ -50,7 +50,8 @@ public class Dock : UserControl
     private void LoadStandardApps()
     {
         AddApps(_appManager.GetAppsFromAssembly(typeof(Settings.MainWindow).Assembly, "com.jais.Settings"));
-        AddApps(_appManager.GetAppsFromAssembly(typeof(Spotify.MainWindow).Assembly, "com.jais.Spotify"));
+        AddApps(_appManager.GetAppsFromAssembly(typeof(Spotify.SpotifyMainWindow).Assembly, "com.jais.Spotify"));
+        AddApps(_appManager.GetAppsFromAssembly(typeof(Maps.MainWindow).Assembly, "com.jais.Maps"));
     }
 
     private void OnNewAppInstalled(object? sender, AppInfo newAppInfo)
@@ -139,7 +140,15 @@ public class Dock : UserControl
 
         if (appInfo.Instance != null)
         {
-            Dispatcher.UIThread.InvokeAsync(() => MainView.Instance.SetApp(appInfo.Instance));
+            Dispatcher.UIThread.InvokeAsync(() =>
+            {
+                foreach (App recentApp in _recentApps)
+                {
+                    recentApp.IsActive = false;
+                }
+                appInfo.IsActive = true;
+                MainView.Instance.SetApp(appInfo.Instance);
+            });
             _recentApps.Add(appInfo);
             _systemConfig.LastUsedApp = appInfo.BundleId;
         }
@@ -147,7 +156,7 @@ public class Dock : UserControl
 
     private void AppClicked(object sender, RoutedEventArgs _)
     {
-        var appInfo = (App) ((Border) sender).DataContext!;
+        var appInfo = (App) ((Button) sender).DataContext!;
         SetApp(appInfo);
     }
 }
