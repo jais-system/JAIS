@@ -97,10 +97,6 @@ public class SpotifyKit
             }
             
             yield return playlist;
-
-            // Task.Run(async () =>
-            // {
-            // });
         }
     }
 

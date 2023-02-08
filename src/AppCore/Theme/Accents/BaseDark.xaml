@@ -237,6 +237,7 @@
         <!-- Icons -->
         <x:String x:Key="PlayIcon">avares://AppCore/Icons/Dark/Play.svg</x:String>
         <x:String x:Key="BackIcon">avares://AppCore/Icons/Dark/Back.svg</x:String>
+        <x:String x:Key="LoadingIcon">avares://AppCore/Icons/Dark/Loading.svg</x:String>
         
     </Style.Resources>
 </Style>

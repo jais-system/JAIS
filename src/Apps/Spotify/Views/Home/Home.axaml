@@ -23,7 +23,7 @@
             <!-- </StackPanel> -->
             
             <StackPanel IsVisible="{Binding Loading}">
-                <Label Margin="0, 50, 0, 0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center">LOADING...</Label>
+                <controls:Loading Margin="0, 100, 0, 0" />
             </StackPanel>
             
             <StackPanel IsVisible="{Binding !IsOnline}">

@@ -5,5 +5,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AppCore.Controls.Loading">
-    LOADING...
+    <UserControl.Styles>
+        <Style Selector="Svg.Loading">
+            <Style.Animations>
+                <Animation Duration="0:0:1" IterationCount="INFINITE"> 
+                    <KeyFrame Cue="0%">
+                        <Setter Property="RotateTransform.Angle" Value="0.0"/>
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="RotateTransform.Angle" Value="360.0"/>
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+    </UserControl.Styles>
+    
+    <Svg Classes="Loading" Width="40" Height="40" Path="{DynamicResource LoadingIcon}" />
 </UserControl>

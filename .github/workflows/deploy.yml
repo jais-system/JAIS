@@ -12,7 +12,7 @@ jobs:
   build:
     name: "Build and Deploy"
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/dotnet/sdk:6.0
+    container: mcr.microsoft.com/dotnet/sdk:7.0
     steps:
     - uses: actions/checkout@v2
 
